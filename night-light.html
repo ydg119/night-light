@@ -215,7 +215,15 @@
 
         // 更改颜色
         function changeColor(color, bgClass) {
+            // 如果点击的是当前颜色，不做任何改变
+            if (color === currentColor) {
+                return;
+            }
+            
             currentColor = color;
+            
+            // 切换颜色时，亮度重置为100%
+            updateBrightness(100);
             
             // 更新背景颜色
             backgroundLayer.className = 'background-layer ' + bgClass;
